@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline" size="large" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Carrusel de imágenes -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="assets/img/50.png">
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/img/100.jpg">
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/img/200.png">
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¡Bienvenido a IT-Event!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Esta aplicación te permitirá registrarte en seminarios, talleres y actividades organizados por la Escuela de Informática y Telecomunicaciones.</p>
+      <p>Navega por las pestañas para inscribirte en eventos, ver el listado de actividades disponibles, y gestionar tu perfil.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Próximos Eventos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Seminario de Redes - 15 de Septiembre</p>
+      <p>Taller de Ciberseguridad - 18 de Septiembre</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="primary" routerLink="/tabs/tab2">
+    Ver Todos los Eventos
+  </ion-button>
+
+</ion-content>

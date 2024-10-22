@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Registro a Eventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let evento of eventos">
+      <ion-label>
+        <h2>{{ evento.nombre }}</h2>
+        <p>{{ evento.fecha }} - {{ evento.lugar }}</p>
+      </ion-label>
+      <ion-button slot="end" color="success" (click)="onRegisterEvento(evento)">
+        Registrarse
+      </ion-button>
+    </ion-item>
+
+    <ion-card *ngIf="qrCodeUrl">
+      <ion-card-header>
+        <ion-card-title>Código QR Generado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="qrCodeUrl" alt="QR Code generado" />
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

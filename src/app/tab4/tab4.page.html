@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Eventos Registrados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="eventosRegistrados.length > 0">
+    <ion-item *ngFor="let evento of eventosRegistrados">
+      <ion-label>
+        <h2>{{ evento.nombre }}</h2>
+        <p>{{ evento.fecha }} - {{ evento.lugar }}</p>
+      </ion-label>
+      <ion-button slot="end" color="danger" (click)="eliminarEvento(evento)">
+        Eliminar Registro
+      </ion-button>
+    </ion-item>
+
+    <ion-card *ngFor="let evento of eventosRegistrados">
+      <ion-card-header>
+        <ion-card-title>Código QR para {{ evento.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img *ngIf="qrCodeUrls[evento.id]" [src]="qrCodeUrls[evento.id]" alt="QR Code para {{ evento.nombre }}" />
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <ion-card *ngIf="eventosRegistrados.length === 0">
+    <ion-card-header>
+      <ion-card-title>No estás registrado en ningún evento</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Regístrate en algún evento desde la pestaña "Eventos".
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="perfilForm" (ngSubmit)="onUpdateProfile()">
+    <!-- Campo para el nombre del usuario -->
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="perfilForm.get('name')?.invalid && perfilForm.get('name')?.touched">
+      El nombre es requerido.
+    </ion-text>
+
+    <!-- Campo para el email del usuario -->
+    <ion-item>
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="perfilForm.get('email')?.invalid && perfilForm.get('email')?.touched">
+      El correo electrónico es inválido.
+    </ion-text>
+
+    <!-- Campo para la selección de imagen -->
+    <ion-item>
+      <ion-label>Selecciona una imagen</ion-label>
+      <input type="file" (change)="onImageSelected($event)" accept="image/*">
+    </ion-item>
+
+    <!-- Vista previa de la imagen seleccionada -->
+    <img *ngIf="imagePreview" [src]="imagePreview" alt="Vista previa de la imagen seleccionada" style="width: 100%; max-width: 200px; height: auto; margin-top: 15px;">
+
+    <!-- Botón para guardar cambios -->
+    <ion-button expand="block" type="submit" [disabled]="perfilForm.invalid">Guardar perfil</ion-button>
+  </form>
+</ion-content>

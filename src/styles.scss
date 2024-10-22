@@ -1,0 +1,30 @@
+@import "node_modules/swiper/swiper-bundle.min.css";
+
+
+
+.swiper-container {
+    width: 100%;  /* El contenedor del carrusel ocupa el 100% del ancho disponible */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+  
+  .swiper-wrapper {
+    display: flex; /* Los slides se alinean horizontalmente */
+    flex-wrap: nowrap; /* Asegura que los slides no se envuelvan en nuevas filas */
+  }
+  
+  .swiper-slide {
+    width: 100%; /* Cada slide ocupa el 100% del ancho del contenedor */
+    position: relative;
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    overflow: hidden;
+  }
+  
+  .swiper-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que la imagen ocupe el 100% del ancho */
+    height: 100%; /* Asegura que la imagen ocupe el 100% de la altura */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor sin perder proporción */
+  }
+  

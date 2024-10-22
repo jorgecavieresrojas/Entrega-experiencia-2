@@ -1,0 +1,13 @@
+.image-preview {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .image-preview img {
+    border-radius: 50%;
+    border: 2px solid #3880ff;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  

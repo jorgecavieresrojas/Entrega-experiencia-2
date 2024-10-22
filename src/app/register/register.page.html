@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="name"></ion-input>
+      <ion-text color="danger" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+        El nombre es obligatorio y debe tener al menos 3 caracteres.
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+      <ion-text color="danger" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        El email es obligatorio y debe ser válido.
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+      <ion-text color="danger" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        La contraseña es obligatoria y debe tener al menos 6 caracteres.
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input formControlName="confirmPassword" type="password"></ion-input>
+      <ion-text color="danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+        Las contraseñas no coinciden.
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">RUT</ion-label>
+      <ion-input formControlName="rut"></ion-input>
+      <ion-text color="danger" *ngIf="registerForm.get('rut')?.invalid && registerForm.get('rut')?.touched">
+        El RUT es obligatorio y debe tener al menos 8 caracteres.
+      </ion-text>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="registerForm.invalid">Registrarse</ion-button>
+  </form>
+</ion-content>

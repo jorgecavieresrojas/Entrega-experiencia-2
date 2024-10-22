@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>IT Events</ion-card-subtitle>
+      <ion-card-subtitle>Asistentes</ion-card-subtitle>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- FORMULARIO REACTIVO -->
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <ion-item>
+          <ion-label position="stacked">Email:</ion-label>
+          <ion-input formControlName="email" type="email" placeholder="Ingrese su correo"></ion-input>
+        </ion-item>
+        <!-- Mensaje de error para el campo de email -->
+        <ion-text color="danger" *ngIf="loginForm.get('email')!.invalid && loginForm.get('email')!.touched">
+          Ingresa un email válido.
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="stacked">Password:</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Ingrese su contraseña"></ion-input>
+        </ion-item>
+        <!-- Mensaje de error para el campo de password -->
+        <ion-text color="danger" *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched">
+          La contraseña debe tener al menos 6 caracteres.
+        </ion-text>
+
+        <div style="text-align: right; margin-top: 10px;">
+          <a (click)="forgotPassword()" style="cursor: pointer; color: #3880ff;">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 15px;">
+          <ion-button expand="block" type="submit" [disabled]="loginForm.invalid" fill="outline" shape="round" color="primary">
+            Ingresar
+          </ion-button>
+          
+          <ion-button (click)="register()" expand="block" fill="outline" shape="round" color="primary">
+            Registrar
+          </ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card> 
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-img src="assets/img/duoc.png" style="width: 100%; height: auto;"></ion-img>
+    
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
